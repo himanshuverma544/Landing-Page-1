@@ -1,5 +1,4 @@
 import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
 
 import Avatar from "../sub-components/Avatar";
 
@@ -120,7 +119,10 @@ export default function Testimonials() {
           >
             <p className='text-center'>{item.text}</p>
             <div className="avatar-details flex gap-5">
-              <Avatar src={item.avatar.profilePic} alt={`${item.avatar.name} Avatar`} />
+              <Avatar 
+                src={item.avatar.profilePic}
+                alt={`${item.avatar.name} Avatar`}
+              />
               <div className="info">
                 <div className='name'>{item.avatar.name}</div>
                 <div className='location'>{item.avatar.location}</div>
