@@ -6,19 +6,19 @@ import ValueImage from "../../../assets/our-services/value.jpg";
     { 
       id: 1,
       heading: "Our Vision",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Nullam vel fringilla nulla. Aliquam erat volutpat. Sed euismod, lorem in vestibulum volutpat, eros lacus facilisis velit, non vulputate sapien felis a magna. Nullam venenatis arcu nec odio luctus, non laoreet erat consectetur. Proin quis augue sapien. Vestibulum non dapibus magna, non posuere nunc. Nullam at ligula lacus. Pellentesque et lacus vitae mi gravida consectetur.",
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Nullam vel fringilla nulla. Aliquam erat volutpat. Sed euismod, lorem in vestibulum volutpat, eros lacus facilisis velit, non vulputate sapien felis a magna. Nullam venenatis arcu nec odio luctus, non laoreet erat consectetur.",
       image: OurVisionImage
     },
     {
       id: 2,
       heading: "Our Mission",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Nullam vel fringilla nulla. Aliquam erat volutpat. Sed euismod, lorem in vestibulum volutpat, eros lacus facilisis velit, non vulputate sapien felis a magna. Nullam venenatis arcu nec odio luctus, non laoreet erat consectetur. Proin quis augue sapien. Vestibulum non dapibus magna, non posuere nunc. Nullam at ligula lacus. Pellentesque et lacus vitae mi gravida consectetur.",
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Nullam vel fringilla nulla. Aliquam erat volutpat. Sed euismod, lorem in vestibulum volutpat, eros lacus facilisis velit, non vulputate sapien felis a magna. Nullam venenatis arcu nec odio luctus, non laoreet erat consectetur.",
       image: OurMissionImage
     },
     {
       id: 3,
       heading: "Value",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Nullam vel fringilla nulla. Aliquam erat volutpat. Sed euismod, lorem in vestibulum volutpat, eros lacus facilisis velit, non vulputate sapien felis a magna. Nullam venenatis arcu nec odio luctus, non laoreet erat consectetur. Proin quis augue sapien. Vestibulum non dapibus magna, non posuere nunc. Nullam at ligula lacus. Pellentesque et lacus vitae mi gravida consectetur.",
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Nullam vel fringilla nulla. Aliquam erat volutpat. Sed euismod, lorem in vestibulum volutpat, eros lacus facilisis velit, non vulputate sapien felis a magna. Nullam venenatis arcu nec odio luctus, non laoreet erat consectetur.",
       image: ValueImage
     }
   ];
@@ -26,28 +26,27 @@ import ValueImage from "../../../assets/our-services/value.jpg";
 export default function OurServices() {
 
   return (
-    <section className="our-services flex flex-col items-center gap-16 px-40 py-10 my-10">
-      <div className="heading-text text-center">
-        <h1 className="text-xs font-bold">
-          OUR SERVICES
+    <section className="our-services flex flex-col items-center gap-12 py-10 my-10 lg:px-20 lg:mx-20">
+      <div className="heading-text flex flex-col gap-5 px-10">
+        <h1 className="text-xs font-bold uppercase md:text-center">
+          Our Services
         </h1>
-        <h2 className="text-5xl font-bold">
+        <h2 className="text-5xl font-bold text-center">
           Vision, Mission, Value
         </h2>
       </div>
 
-      <div className="content-items w-full flex flex-col gap-5">
+      <div className="content-items w-full flex flex-col md:gap-1">
         {data.map(item => (
-          <div
-            key={item.id}
-            className="img-cont w-full h-[500px] relative"
-          >
+          <div key={item.id} className="img-cont relative h-[27rem]">
             <img
               className="w-full h-full object-cover"
               src={item.image} 
               alt={item.heading}
             />
-            <div className="w-3/5 flex flex-col items-center gap-5 absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 p-11 bg-white backdrop-blur bg-opacity-20 text-white">
+            <div
+              className="w-4/5 flex flex-col items-center gap-5 absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 p-11 bg-white backdrop-blur bg-opacity-20 text-white"
+            >
               <h3 className="text-4xl font-bold underline">{item.heading}</h3>
               <p>{item.text}</p>
             </div>
