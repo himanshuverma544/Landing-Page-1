@@ -98,7 +98,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="testimonials flex flex-col items-center py-10 my-10">
+    <section className="testimonials flex flex-col items-center pb-10 mb-10">
       <h1 className="text-5xl font-bold">
         Testimonials
       </h1>

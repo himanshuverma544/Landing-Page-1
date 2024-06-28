@@ -27,11 +27,11 @@ export default function OurServices() {
 
   return (
     <section className="our-services flex flex-col items-center gap-12 py-10 my-10 lg:px-20 lg:mx-20">
-      <div className="heading-text flex flex-col gap-5 px-10">
+      <div className="heading-text flex flex-col gap-5 px-7">
         <h1 className="text-xs font-bold uppercase md:text-center">
           Our Services
         </h1>
-        <h2 className="text-5xl font-bold text-center">
+        <h2 className="text-5xl font-bold md:text-center">
           Vision, Mission, Value
         </h2>
       </div>
