@@ -1,3 +1,5 @@
+import Carousel from 'react-multi-carousel';
+
 import Teammate from "../sub-components/Teammate";
 import Brand from "../sub-components/Brand";
 
@@ -16,8 +18,73 @@ import Teammate6 from "../../../assets/teamwork/teammates/teammate6.svg";
 
 export default function Teamwork() {
 
+  const teammates = [
+    {
+      id: 1,
+      name: "Shivam Sharma",
+      designation: "Director of PCSS",
+      avatar: Teammate1,
+      brand: <Doordash/>
+    },
+    {
+      id: 2,
+      name: "Shivani Yadav",
+      designation: "CEO OF PCSS",
+      avatar: Teammate2,
+      brand: <Figma/>
+    },
+    {
+      id: 3,
+      name: "Prateek Chauhan",
+      designation: "COO of PCSS",
+      avatar: Teammate3,
+      brand: <Linear/>
+    },
+    {
+      id: 4,
+      name: "Ankush Kothiyal",
+      designation: "CFO of PCSS",
+      avatar: Teammate4,
+      brand: <Loom/>
+    },
+    {
+      id: 5,
+      name: "Srideep Gurung",
+      designation: "CMO of PCSS",
+      avatar: Teammate5,
+      brand: <Doordash/>
+    },
+    {
+      id: 6,
+      name: "Saumya Pant",
+      designation: "CLO of PCSS",
+      avatar: Teammate6,
+      brand: <Figma/>
+    }
+  ];
+
+  const [teammate1, teammate2, teammate3, teammate4, teammate5, teammate6] = teammates;
+
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+      slidesToSlide: 1 // optional, default to 1.
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+      slidesToSlide: 1 // optional, default to 1.
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+      slidesToSlide: 1 // optional, default to 1.
+    }
+  };  
+
   return (
-    <section className="teamwork flex flex-col gap-5 px-20 py-10">
+    <section className="teamwork flex flex-col gap-5 px-7 pt-10">
       <h1 className="text-5xl uppercase">
         High Voltage Teamwork
       </h1>
@@ -26,47 +93,77 @@ export default function Teamwork() {
         Nullam vel fringilla nulla. Aliquam erat volutpat. Sed euismod, lorem in vestibulum volutpat, eros lacus facilisis velit, non vulputate sapien felis a magna. Nullam venenatis arcu nec odio luctus, non laoreet erat consectetur. Proin quis augue sapien. Vestibulum non dapibus magna, non posuere nunc. Nullam at ligula lacus. Pellentesque et lacus vitae mi gravida consectetur.
       </p>
 
-      <div className="brands-and-teammates h-[1200px] px-20 relative">
-        <Brand icon={<Figma/>}/>
-        <Brand icon={<Linear/>}/>
-        <Brand icon={<Loom/>}/>
-        <Brand icon={<Doordash/>}/>
+      {/* For Mobile Devices */}
+
+      <Carousel
+        responsive={responsive}
+        infinite={true}
+        autoPlay={true}
+        keyBoardControl={true}
+        removeArrowOnDeviceType={["tablet", "mobile"]}
+        containerClass="carousel-container w-[94vw] h-[150vw] max-h-[560px] md:hidden-force"
+      >
+        {teammates.map(teammate => (
+          <div key={teammate.id} className='relative mx-2 mt-16'>
+            {teammate.hasOwnProperty("brand") && 
+              <Brand 
+                className="absolute left-1/2 bottom-[95%] ms-2 mb-5"
+                icon={teammate?.brand}
+              />
+            }
+            <Teammate
+              key={teammate.id}
+              name={teammate.name}
+              designation={teammate.designation}
+              avatar={teammate.avatar}
+            />
+          </div>
+        ))}
+      </Carousel>
+
+      {/* For Tablets and above Devices */}
+
+      <div className="brands-and-teammates h-[95vw] px-20 my-14 relative hidden md:block bg-blue-100">
+        <Brand className="absolute top-[0vw] right-[30vw]" icon={<Figma/>}/>
+        <Brand className="absolute top-[13vw] right-[49vw]" icon={<Linear/>}/>
+        <Brand className="absolute top-[37vw] right-[76vw]" icon={<Loom/>}/>
+        <Brand className="absolute top-[37vw] right-[6vw]" icon={<Doordash/>}/>
         
         <Teammate
-          className="absolute top-[5%] right-[61%]"
-          name="Shivam Sharma"
-          designation="CEO of PCSS"
-          avatar={Teammate1}
+          className="absolute top-[5vw] right-[59vw]"
+          name={teammate1.name}
+          designation={teammate1.designation}
+          avatar={teammate1.avatar}
         />
         <Teammate
-          className="absolute top-[22%] right-[32%]"
-          name="Shivam Sharma"
-          designation="CEO of PCSS"
-          avatar={Teammate2}
+          className="absolute top-[22vw] right-[31vw] bg-green-700"
+          name={teammate2.name}
+          designation={teammate2.designation}
+          avatar={teammate2.avatar}
         />
         <Teammate
-          className="absolute top-[5%] right-[6%] z-10"
-          name="Shivam Sharma"
-          designation="CEO of PCSS"
-          avatar={Teammate3}
+          className="absolute top-[5vw] right-[6vw] z-10"
+          name={teammate3.name}
+          designation={teammate3.designation}
+          avatar={teammate3.avatar}
         />
         <Teammate
-          className="absolute top-[43%] right-[58%]"
-          name="Shivam Sharma"
-          designation="CEO of PCSS"
-          avatar={Teammate4}
+          className="absolute top-[43vw] right-[55vw] z-10 bg-orange-400"
+          name={teammate4.name}
+          designation={teammate4.designation}
+          avatar={teammate4.avatar}
         />
         <Teammate
-          className="absolute top-[62%] right-[31%] z-10"
-          name="Shivam Sharma"
-          designation="CEO of PCSS"
-          avatar={Teammate5}
+          className="absolute top-[60vw] right-[28vw] z-10 bg-yellow-500"
+          name={teammate5.name}
+          designation={teammate5.designation}
+          avatar={teammate5.avatar}
         />
         <Teammate
-          className="absolute top-[43%] right-[6%]"
-          name="Shivam Sharma"
-          designation="CEO of PCSS"
-          avatar={Teammate6}
+          className="absolute top-[42vw] right-[6vw]"
+          name={teammate6.name}
+          designation={teammate6.designation}
+          avatar={teammate6.avatar}
         />
       </div>
 
