@@ -124,43 +124,43 @@ export default function Teamwork() {
       {/* For Tablets and above Devices */}
 
       <div className="brands-and-teammates h-[95vw] px-20 my-14 relative hidden md:block bg-blue-100">
-        <Brand className="absolute top-[0vw] right-[30vw]" icon={<Figma/>}/>
-        <Brand className="absolute top-[13vw] right-[49vw]" icon={<Linear/>}/>
-        <Brand className="absolute top-[37vw] right-[76vw]" icon={<Loom/>}/>
-        <Brand className="absolute top-[37vw] right-[6vw]" icon={<Doordash/>}/>
+        <Brand className="absolute top-[2vw] right-[30vw]" icon={<Figma/>}/>
+        <Brand className="absolute top-[15vw] right-[49vw]" icon={<Linear/>}/>
+        <Brand className="absolute top-[39vw] right-[76vw]" icon={<Loom/>}/>
+        <Brand className="absolute top-[39vw] right-[6vw]" icon={<Doordash/>}/>
         
         <Teammate
-          className="absolute top-[5vw] right-[59vw]"
+          className="absolute top-[7vw] right-[59vw]"
           name={teammate1.name}
           designation={teammate1.designation}
           avatar={teammate1.avatar}
         />
         <Teammate
-          className="absolute top-[22vw] right-[31vw] bg-green-700"
+          className="absolute top-[24vw] right-[31vw]"
           name={teammate2.name}
           designation={teammate2.designation}
           avatar={teammate2.avatar}
         />
         <Teammate
-          className="absolute top-[5vw] right-[6vw] z-10"
+          className="absolute top-[7vw] right-[6vw] z-10"
           name={teammate3.name}
           designation={teammate3.designation}
           avatar={teammate3.avatar}
         />
         <Teammate
-          className="absolute top-[43vw] right-[55vw] z-10 bg-orange-400"
+          className="absolute top-[45vw] right-[55vw] z-10"
           name={teammate4.name}
           designation={teammate4.designation}
           avatar={teammate4.avatar}
         />
         <Teammate
-          className="absolute top-[60vw] right-[28vw] z-10 bg-yellow-500"
+          className="absolute top-[62vw] right-[28vw] z-10"
           name={teammate5.name}
           designation={teammate5.designation}
           avatar={teammate5.avatar}
         />
         <Teammate
-          className="absolute top-[42vw] right-[6vw]"
+          className="absolute top-[44vw] right-[6vw]"
           name={teammate6.name}
           designation={teammate6.designation}
           avatar={teammate6.avatar}
