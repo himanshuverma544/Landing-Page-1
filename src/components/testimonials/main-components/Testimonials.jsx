@@ -147,7 +147,7 @@ export default function Testimonials() {
         Testimonials
       </h1>
 
-      <div className="carousel-parent-cont">
+      <div className="carousel-cont-&-arrows-wrapper">
         <Carousel
           ref= {carouselRef}
           responsive={responsive}
