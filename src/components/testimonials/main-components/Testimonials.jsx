@@ -105,15 +105,51 @@ const responsive = {
 export default function Testimonials() {
 
   const isMobileOrTablet = useMediaQuery('(max-width: 1024px)');
+  const isLaptopOrDesktop = useMediaQuery('(min-width: 1024px)');
+  
+
+  const carouselRef = React.useRef(null);
+
+
+  const [highlightTestimonial, setHighlightTestimonial] = React.useState(1);
+
 
   const [isDisabled, setIsDisabled] = React.useState({
     leftArrowBtn: true,
     rightArrowBtn: false,
   });
 
-  const carouselRef = React.useRef(null);
   const leftArrowBtnRef = React.useRef(null);
   const rightArrowBtnRef = React.useRef(null);
+
+
+  const highlightMiddleTestimonial = React.useCallback(setHighlightTestimonial => {
+
+    const {
+      listRef: { current: { childNodes: testimonialsNode } },
+      state: { totalItems }
+    } = carouselRef.current;
+
+    const activeClassName = "react-multi-carousel-item--active";
+    let activeClassNameCount = 0;
+    let middleTestimonialId;
+
+    for (const testimonialNode of testimonialsNode) {
+
+      if (testimonialNode.classList.contains(activeClassName))
+        activeClassNameCount++;
+
+      if (activeClassNameCount === (2 + 1)) { // adding 1 because 3rd becomes 2nd
+        middleTestimonialId = testimonialNode.firstElementChild.getAttribute('data-id');
+        break;
+      }
+    }
+
+    setHighlightTestimonial(
+      middleTestimonialId == (totalItems - 1) ? 1 : middleTestimonialId
+    );
+  }, []);
+
 
   const disableArrowBtn = React.useCallback(setIsDisabled => {
 
@@ -130,16 +166,17 @@ export default function Testimonials() {
 
     const activeClassName = 'react-multi-carousel-dot--active';
 
-    if (firstDot.classList.contains(activeClassName)) {
-      setIsDisabled({ leftArrowBtn: true, rightArrowBtn: false });
-    }
-    else if (lastDot.classList.contains(activeClassName)) {
-      setIsDisabled(prev => ({ ...prev, rightArrowBtn: true }));
-    }
-    else {
-      setIsDisabled(prev => ({ ...prev, leftArrowBtn: false }));
-    }
+    setIsDisabled(
+      firstDot.classList.contains(activeClassName)
+        ? { leftArrowBtn: true, rightArrowBtn: false }
+        : (
+            lastDot.classList.contains(activeClassName)
+              ? prev => ({ ...prev, rightArrowBtn: true })
+              : prev => ({ ...prev, leftArrowBtn: false })
+          )
+    );    
   }, []);
+
 
   return (
     <section className="testimonials flex flex-col items-center gap-10 pb-10 mb-10">
@@ -156,21 +193,32 @@ export default function Testimonials() {
           rewindWithAnimation
           autoPlay
           keyBoardControl
-          removeArrowOnDeviceType={["tablet", "mobile"]}
-          containerClass="carousel-container w-[97vw] pb-10"
+          removeArrowOnDeviceType={["desktop", "tablet", "mobile"]}
+          containerClass="w-[97vw] pb-10"
+          sliderClass="flex items-center lg:h-[35vw] lg:max-h-[350px] xl:max-h-[300px]"
           itemClass="sm:px-5"
-          afterChange={(...rest) => 
-            isMobileOrTablet && disableArrowBtn(setIsDisabled)
+          beforeChange={
+            (...rest) => isLaptopOrDesktop && highlightMiddleTestimonial(setHighlightTestimonial)
           }
+          afterChange={(...rest) => {
+            isMobileOrTablet && disableArrowBtn(setIsDisabled)
+            
+          }}           
         >
           {data.map(item => (
             <div 
               key={item.id} 
-              className="flex flex-col justify-center items-center gap-5 p-5 border rounded-lg"
+              className={`
+                flex flex-col justify-center items-center gap-5
+                p-5 border rounded-lg 
+                transition-all duration-500 ease-in
+                ${highlightTestimonial == (item.id - 1) ? "lg:py-10 xl:py-12" : ""}
+              `}
+              data-id={item.id - 1}
             >
               <p className='text-center'>{item.text}</p>
               <div className="avatar-details flex gap-5">
-                <Avatar 
+                <Avatar
                   src={item.avatar.profilePic}
                   alt={`${item.avatar.name} Avatar`}
                 />
@@ -186,18 +234,18 @@ export default function Testimonials() {
         <div className="carousel-arrows flex justify-between lg:hidden">
           <button
             ref={leftArrowBtnRef}
-            className="left-arrow-btn"
+            className="left-arrow-btn ms-5 sm:ms-7 md:ms-9"
             disabled={isDisabled.leftArrowBtn}
             onClick={() => carouselRef.current.previous()}
           >
             {!isDisabled.leftArrowBtn ?
               <ArrowActive className="left-arrow-active rotate-180"/> :
-              <ArrowDisabled className="left-arrow-disabled "/>
+              <ArrowDisabled className="left-arrow-disabled"/>
             }
           </button>
           <button
             ref={rightArrowBtnRef}
-            className="right-arrow-btn"
+            className="right-arrow-btn me-5 sm:me-7 md:me-9"
             disabled={isDisabled.rightArrowBtn}
             onClick={() => carouselRef.current.next()}
           >
