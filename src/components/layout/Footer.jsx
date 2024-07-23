@@ -1,35 +1,46 @@
 export default function Footer() {
 
   return (
-    <footer className="flex px-20 py-10 border-t-2">
-      <div className="left w-1/2 flex flex-col gap-5">
-        <div>Header</div>
-        <div>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Nullam vel fringilla nulla. Aliquam erat volutpat. Sed euismod, lorem in vestibulum volutpat, eros lacus facilisis velit, non vulputate sapien felis a magna.
+    <footer className="flex flex-col gap-5 border-t-2 px-5 py-10 mb-14 lg:mb-0">
+      <div className="top flex flex-col gap-8 lg:flex-row">
+        <div className="content flex flex-col gap-3 lg:w-[49%]">
+          <div className="heading font-semibold text-sm 2xl:text-base">
+            Footer Heading
+          </div>
+          <div className="text text-sm 2xl:text-base">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Nullam vel fringilla nulla. Aliquam erat volutpat. Sed euismod, lorem in vestibulum volutpat, eros lacus facilisis velit, non vulputate sapien felis a magna.
+          </div>
         </div>
-        <div className="social-icons flex gap-10">
+
+        <div className="social-icons flex justify-evenly gap-10 text-2xl lg:grow lg:items-center">
           <a href="#">
-            <i className="fa-brands fa-instagram"></i>
+            <i className="fa-brands fa-github"/>
           </a>
           <a href="#">
-            <i className="fa-brands fa-facebook"></i>
+            <i className="fa-brands fa-linkedin"/>
           </a>
           <a href="#">
-            <i className="fa-brands fa-linkedin"></i>
+            <i className="fa-brands fa-facebook"/>
           </a>
           <a href="#">
-            <i className="fa-brands fa-github"></i>
+            <i className="fa-brands fa-instagram"/>
           </a>
         </div>
       </div>
 
-      <div className="right w-1/2 flex flex-col items-center gap-5">
-        <div>Header Text</div>
-        <button>Button</button>
-        <button>Button</button>
-        <button>Button</button>
-        <button>Button</button>
+      <div className="bottom flex flex-col flex-wrap gap-5 lg:flex-row">
+        <div className="text text-sm lg:w-[49%] 2xl:text-base">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Nullam vel fringilla nulla. Aliquam erat volutpat. Sed euismod, lorem in vestibulum volutpat, eros lacus facilisis velit, non vulputate sapien felis a magna.
+        </div>
+        <div className="buttons-group flex flex-wrap items-center justify-evenly gap-5 mx-auto text-sm lg:grow 2xl:text-base">
+          <button className="border px-3 py-1 rounded">Button 1</button>
+          <button className="border px-3 py-1 rounded">Button 2</button>
+          <button className="border px-3 py-1 rounded">Button 3</button>
+          <button className="border px-3 py-1 rounded">Button 4</button>
+          <button className="border px-3 py-1 rounded">Button 5</button>
+        </div>
       </div>
     </footer>
   );

@@ -85,7 +85,7 @@ export default function Teamwork() {
 
   return (
     <section className="teamwork flex flex-col gap-5 px-7 pt-10">
-      <h1 className="text-5xl uppercase">
+      <h1 className="text-center text-5xl uppercase font-bold">
         High Voltage Teamwork
       </h1>
 

@@ -17,7 +17,7 @@ export default function About() {
       </div>
 
       <img
-        className="rounded-3xl h-[60vw] max-h-[250px] lg:h-[30vw] lg:max-h-[400px]"
+        className="h-[60vw] max-h-[250px] border-2 rounded-[2rem] lg:h-[30vw] lg:max-h-[400px] border-black"
         src={AboutImage}
         alt="Hero Image"
       />

@@ -8,7 +8,7 @@ export default function HaveProject() {
       </div>
       <div className="w-4/5 flex justify-end mt-28">
         <button>
-          Let's Chat
+          Let&rsquo;s Chat
         </button>
       </div>
     </section>
