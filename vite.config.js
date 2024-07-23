@@ -5,6 +5,6 @@ import svgr from 'vite-plugin-svgr';
 
 export default defineConfig({
   
-  base: "/PCSS-SoftTech-Website-Clone/",
+  base: "/PCSS-Softech-Website-Clone/",
   plugins: [react(), svgr()],
 });
