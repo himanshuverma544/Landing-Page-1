@@ -1,7 +1,7 @@
 export default function Footer() {
 
   return (
-    <footer className="flex flex-col gap-5 border-t-2 px-5 py-10 mb-14 lg:mb-0">
+    <footer className="flex flex-col gap-5 border-t-2 px-5 py-10">
       <div className="top flex flex-col gap-8 lg:flex-row">
         <div className="content flex flex-col gap-3 lg:w-[49%]">
           <div className="heading font-semibold text-sm 2xl:text-base">
