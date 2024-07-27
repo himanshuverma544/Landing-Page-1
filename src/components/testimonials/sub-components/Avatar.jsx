@@ -9,7 +9,7 @@ const Avatar = ({ className = "avatar", src, alt, size = 50, onClick}) => {
       }}
       onClick={onClick}
     >
-      <img className="rounded-[50%] w-full h-full object-cover" src={src} alt={alt}/>
+      <img className="size-full rounded-[50%] object-cover" src={src} alt={alt}/>
     </div>
   );
 }
