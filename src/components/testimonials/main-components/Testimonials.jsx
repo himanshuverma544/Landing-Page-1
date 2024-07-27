@@ -10,8 +10,8 @@ import useCarouselArrows from "../../../../utilities/hooks/react-multi-carousel/
 
 import { getCarouselResponsive } from "../../../../utilities/functions";
 
-// import ArrowActive from "../../../assets/testimonials/miscellaneous/arrow-active.svg?react";
-// import ArrowDisabled from "../../../assets/testimonials/miscellaneous/arrow-disabled.svg?react";
+import ArrowActive from "../../../assets/testimonials/miscellaneous/arrow-active.svg?react";
+import ArrowDisabled from "../../../assets/testimonials/miscellaneous/arrow-disabled.svg?react";
 
 import Client1 from "../../../assets/testimonials/clients/client1.jpg";
 import Client2 from "../../../assets/testimonials/clients/client2.png";
@@ -99,7 +99,8 @@ export default function Testimonials() {
 
   const { CarouselArrows, disableArrowBtn } = useCarouselArrows({ 
     carouselRef,
-   
+    activeArrowIcon: ArrowActive,
+    inactiveArrowIcon: ArrowDisabled
   });
 
   const { breakpoints: { lg }, screenWidth } = useWindowSize();
@@ -134,9 +135,9 @@ export default function Testimonials() {
             />
           ))}
         </Carousel>
-        {/* {screenWidth < lg && */}
+        {screenWidth < lg &&
           <CarouselArrows/>
-        {/* } */}
+        }
       </div>
     </section>
   );
