@@ -3,6 +3,10 @@ import Carousel from 'react-multi-carousel';
 import Teammate from "../sub-components/Teammate";
 import Brand from "../sub-components/Brand";
 
+import useWindowSize from '../../../../utilities/hooks/general/useWindowSize';
+
+import { getCarouselResponsive } from "../../../../utilities/functions";
+
 import Figma from "../../../assets/teamwork/brands/figma.svg?react";
 import Linear from "../../../assets/teamwork/brands/linear.svg?react"
 import Loom from "../../../assets/teamwork/brands/loom.svg?react";
@@ -65,23 +69,9 @@ export default function Teamwork() {
 
   const [teammate1, teammate2, teammate3, teammate4, teammate5, teammate6] = teammates;
 
-  const responsive = {
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3,
-      slidesToSlide: 1 // optional, default to 1.
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 640 },
-      items: 2,
-      slidesToSlide: 1 // optional, default to 1.
-    },
-    mobile: {
-      breakpoint: { max: 640, min: 0 },
-      items: 1,
-      slidesToSlide: 1 // optional, default to 1.
-    }
-  };  
+  const responsive = getCarouselResponsive();
+
+  const { breakpoints: { md }, screenWidth } = useWindowSize();
 
   return (
     <section className="teamwork flex flex-col gap-5 px-7 pt-10">
@@ -95,35 +85,39 @@ export default function Teamwork() {
 
       {/* For Mobile Devices */}
 
-      <Carousel
-        responsive={responsive}
-        infinite={true}
-        autoPlay={true}
-        keyBoardControl={true}
-        removeArrowOnDeviceType={["tablet", "mobile"]}
-        containerClass="carousel-container w-[94vw] h-[150vw] max-h-[560px] md:hidden-force"
-      >
-        {teammates.map(teammate => (
-          <div key={teammate.id} className='relative mx-2 mt-16'>
-            {teammate.hasOwnProperty("brand") && 
-              <Brand 
-                className="absolute left-1/2 bottom-[95%] ms-2 mb-5"
-                icon={teammate?.brand}
+      {screenWidth < md &&
+        <Carousel
+          responsive={responsive}
+          infinite={true}
+          autoPlay={true}
+          keyBoardControl={true}
+          removeArrowOnDeviceType={["tablet", "mobile"]}
+          containerClass="carousel-container w-[87vw] h-[150vw] max-h-[560px]"
+          itemClass="fix-drag select-none px-3"
+        >
+          {teammates.map(teammate => (
+            <div key={teammate.id} className='relative mt-16'>
+              {teammate.hasOwnProperty("brand") && 
+                <Brand 
+                  className="absolute left-1/2 bottom-[95%] ms-2 mb-5"
+                  icon={teammate?.brand}
+                />
+              }
+              <Teammate
+                key={teammate.id}
+                name={teammate.name}
+                designation={teammate.designation}
+                avatar={teammate.avatar}
               />
-            }
-            <Teammate
-              key={teammate.id}
-              name={teammate.name}
-              designation={teammate.designation}
-              avatar={teammate.avatar}
-            />
-          </div>
-        ))}
-      </Carousel>
+            </div>
+          ))}
+        </Carousel>
+      }
 
       {/* For Tablets and above Devices */}
 
-      <div className="brands-and-teammates h-[95vw] px-20 my-14 relative hidden md:block bg-blue-100">
+      { screenWidth >= md &&
+        <div className="brands-and-teammates h-[95vw] px-20 my-14 relative">
         <Brand className="absolute top-[2vw] right-[30vw]" icon={<Figma/>}/>
         <Brand className="absolute top-[15vw] right-[49vw]" icon={<Linear/>}/>
         <Brand className="absolute top-[39vw] right-[76vw]" icon={<Loom/>}/>
@@ -165,9 +159,8 @@ export default function Teamwork() {
           designation={teammate6.designation}
           avatar={teammate6.avatar}
         />
-      </div>
-
-
+        </div>
+      }
     </section>
   );
 }
