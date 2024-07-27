@@ -6,9 +6,9 @@ export default function Header() {
     <header className="flex border-b-2">
       
         <div className="menu-icon p-5 mx-5 md:order-last">
-          <div className="w-8 h-1 my-1.5 bg-black"/>
-          <div className="w-5 h-1 my-1.5 bg-black"/>
-          <div className="w-8 h-1 my-1.5 bg-black"/>
+          <div className="w-8 h-1 my-1.5 bg-white"/>
+          <div className="w-5 h-1 my-1.5 bg-white"/>
+          <div className="w-8 h-1 my-1.5 bg-white"/>
         </div>
         
         <div className="app-brand flex flex-1 justify-center me-20 md:justify-start p-5 md:ms-5 md:me-0">
