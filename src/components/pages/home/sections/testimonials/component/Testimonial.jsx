@@ -1,4 +1,4 @@
-import Avatar from './Avatar';
+import Avatar from '../../../../../general/Avatar';
 
 
 export default function Testimonial({ testimonial, highlightItem }) {

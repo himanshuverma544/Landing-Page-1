@@ -1,8 +1,11 @@
-import HaveProjectImage from "../../../assets/have-project/have-project.png";
+import HaveProjectImage from "../../../../assets/pages/home/sections/have-project/have-project.png";
 
 export default function HaveProject() {
   return (
-    <section className={`have-project h-[30rem] flex items-center px-20`} style={{backgroundImage: `url(${HaveProjectImage})`}}>
+    <section
+      className="have-project h-[30rem] flex items-center px-20"
+      style={{ backgroundImage: `url(${HaveProjectImage})` }}
+    >
       <div className="w-2/5 text-5xl mt-32">
         Have a Project in Mind
       </div>

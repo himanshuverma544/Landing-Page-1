@@ -1,8 +1,11 @@
-import AboutImage from "../../../assets/about/about.png";
+import AboutImage from "../../../../assets/pages/home/sections/about/about.png";
+
 
 export default function About() {
+
   return (
     <section className="about flex flex-col gap-5 px-7 py-10 md:px-20">
+
       <div className="flex flex-col md md:flex-row gap-10 ">
         <h2 className="text-5xl font-bold md:w-1/2"> 
           About PCSS: where excellence meets innovation

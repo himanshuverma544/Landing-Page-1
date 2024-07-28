@@ -1,6 +1,6 @@
-import OurVisionImage from "../../../assets/our-services/our-vision.jpg";
-import OurMissionImage from "../../../assets/our-services/our-mission.jpg";
-import ValueImage from "../../../assets/our-services/value.jpg";
+import OurVisionImage from "../../../../assets/pages/home/sections/our-services/our-vision.jpg";
+import OurMissionImage from "../../../../assets/pages/home/sections/our-services/our-mission.jpg";
+import ValueImage from "../../../../assets/pages/home/sections/our-services/value.jpg";
 
   const data = [
     { 

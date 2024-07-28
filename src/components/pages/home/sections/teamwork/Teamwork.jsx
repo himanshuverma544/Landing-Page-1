@@ -1,23 +1,23 @@
 import Carousel from 'react-multi-carousel';
 
-import Teammate from "../sub-components/Teammate";
-import Brand from "../sub-components/Brand";
+import Teammate from "./components/Teammate";
+import Brand from "./components/Brand";
 
-import useWindowSize from '../../../../utilities/hooks/general/useWindowSize';
+import useWindowSize from '../../../../../../utilities/hooks/general/useWindowSize';
 
-import { getCarouselResponsive } from "../../../../utilities/functions";
+import { getCarouselResponsive } from "../../../../../../utilities/functions";
 
-import Figma from "../../../assets/teamwork/brands/figma.svg?react";
-import Linear from "../../../assets/teamwork/brands/linear.svg?react"
-import Loom from "../../../assets/teamwork/brands/loom.svg?react";
-import Doordash from "../../../assets/teamwork/brands/doordash.svg?react";
+import Figma from "../../../../../assets/pages/home/sections/teamwork/brands/figma.svg?react";
+import Linear from "../../../../../assets/pages/home/sections/teamwork/brands/linear.svg?react"
+import Loom from "../../../../../assets/pages/home/sections/teamwork/brands/loom.svg?react";
+import Doordash from "../../../../../assets/pages/home/sections/teamwork/brands/doordash.svg?react";
 
-import Teammate1 from "../../../assets/teamwork/teammates/teammate1.svg";
-import Teammate2 from "../../../assets/teamwork/teammates/teammate2.svg";
-import Teammate3 from "../../../assets/teamwork/teammates/teammate3.svg";
-import Teammate4 from "../../../assets/teamwork/teammates/teammate4.svg";
-import Teammate5 from "../../../assets/teamwork/teammates/teammate5.svg";
-import Teammate6 from "../../../assets/teamwork/teammates/teammate6.svg";
+import Teammate1 from "../../../../../assets/pages/home/sections/teamwork/teammates/teammate1.svg";
+import Teammate2 from "../../../../../assets/pages/home/sections/teamwork/teammates/teammate2.svg";
+import Teammate3 from "../../../../../assets/pages/home/sections/teamwork/teammates/teammate3.svg";
+import Teammate4 from "../../../../../assets/pages/home/sections/teamwork/teammates/teammate4.svg";
+import Teammate5 from "../../../../../assets/pages/home/sections/teamwork/teammates/teammate5.svg";
+import Teammate6 from "../../../../../assets/pages/home/sections/teamwork/teammates/teammate6.svg";
 
 
 export default function Teamwork() {

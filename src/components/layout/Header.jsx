@@ -1,5 +1,6 @@
 import AppLogo from "../../assets/header/app-logo.png";
 
+
 export default function Header() {
 
   return (
@@ -16,7 +17,6 @@ export default function Header() {
             <img src={AppLogo} alt="app-brand-img"/>
           </a>
         </div>
-      
 
       <nav className="hidden md:block md:text-nowrap p-5">
         <button>

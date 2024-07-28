@@ -2,24 +2,24 @@ import { useRef } from "react";
 
 import Carousel from 'react-multi-carousel';
 
-import Testimonial from '../sub-components/Testimonial';
+import Testimonial from './component/Testimonial';
 
-import useWindowSize from "../../../../utilities/hooks/general/useWindowSize";
-import useHighlightItem from "../../../../utilities/hooks/react-multi-carousel/useHighlightItem";
-import useCarouselArrows from "../../../../utilities/hooks/react-multi-carousel/useCarouselArrows";
+import useWindowSize from "../../../../../../utilities/hooks/general/useWindowSize";
+import useHighlightItem from "../../../../../../utilities/hooks/react-multi-carousel/useHighlightItem";
+import useCarouselArrows from "../../../../../../utilities/hooks/react-multi-carousel/useCarouselArrows";
 
-import { getCarouselResponsive } from "../../../../utilities/functions";
+import { getCarouselResponsive } from "../../../../../../utilities/functions";
 
-import ArrowActive from "../../../assets/testimonials/miscellaneous/arrow-active.svg?react";
-import ArrowDisabled from "../../../assets/testimonials/miscellaneous/arrow-disabled.svg?react";
+import ArrowActive from "../../../../../assets/general/arrow-active.svg?react";
+import ArrowDisabled from "../../../../../assets/general/arrow-disabled.svg?react";
 
-import Client1 from "../../../assets/testimonials/clients/client1.jpg";
-import Client2 from "../../../assets/testimonials/clients/client2.png";
-import Client3 from "../../../assets/testimonials/clients/client3.jpg";
-import Client4 from "../../../assets/testimonials/clients/client4.png";
-import Client5 from "../../../assets/testimonials/clients/client5.jpeg";
-import Client6 from "../../../assets/testimonials/clients/client6.jpeg";
-import Client7 from "../../../assets/testimonials/clients/client7.jpg";
+import Client1 from "../../../../../assets/pages/home/sections/testimonials/clients/client1.jpg";
+import Client2 from "../../../../../assets/pages/home/sections/testimonials/clients/client2.png";
+import Client3 from "../../../../../assets/pages/home/sections/testimonials/clients/client3.jpg";
+import Client4 from "../../../../../assets/pages/home/sections/testimonials/clients/client4.png";
+import Client5 from "../../../../../assets/pages/home/sections/testimonials/clients/client5.jpeg";
+import Client6 from "../../../../../assets/pages/home/sections/testimonials/clients/client6.jpeg";
+import Client7 from "../../../../../assets/pages/home/sections/testimonials/clients/client7.jpg";
 
 
 const data = [
