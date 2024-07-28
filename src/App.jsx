@@ -1,28 +1,23 @@
 import './App.css';
 
-import Header from './components/layout/Header';
-import Footer from './components/layout/Footer';
-import About from './components/about/main-components/About';
-import OurServices from './components/our-services/main-components/OurServices';
-import Teamwork from './components/teamwork/main-components/Teamwork';
-import Testimonials from './components/testimonials/main-components/Testimonials';
-import HaveProject from './components/have-project/main-components/HaveProject';
+import { HashRouter, Route, Routes } from 'react-router-dom';
+
+import Layout from './pages/Layout';
+import Home from './pages/Home';
+
+import { HOME } from '../routes';
 
 
 function App() {
 
   return (
-    <>
-      <Header/>
-      <main>
-        <About/>
-        <OurServices/>
-        <Teamwork/>
-        <Testimonials/>
-        {/* <HaveProject/> */}
-      </main>
-      <Footer/>
-    </>
+    <HashRouter basename=''>
+      <Routes>
+        <Route path={HOME.pathname} element={<Layout/>}>
+          <Route index element={<Home/>}/>
+        </Route>
+      </Routes>
+    </HashRouter>
   );
 }
 
